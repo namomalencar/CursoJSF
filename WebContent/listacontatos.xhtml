@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<h1>Lista de Contatos</h1>
+</h:head>
+<h:form>
+	<h:body>
+		<p:dataTable paginator="true" rows="10" var="meucontato"
+			value="#{contatoBean.getContatos()}">
+			<p:column sortBy="#{meucontato.id}" headerText="Id">
+				<h:outputText value="#{meucontato.id}" />
+			</p:column>
+			<p:column headerText="Nome">
+				<h:outputText value="#{meucontato.nome}" />
+			</p:column>
+			<p:column headerText="Email">
+				<h:outputText value="#{meucontato.email}" />
+			</p:column>
+			<p:column headerText="Endereço">
+				<h:outputText value="#{meucontato.endereco}" />
+			</p:column>
+			<p:column headerText="Data de Nascimento">
+				<h:outputText value="#{meucontato.dataNascimento.time}">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</h:outputText>
+			</p:column>
+			<p:column sortBy="#{meucontato.sexo}" headerText="Sexo">
+				<h:outputText value="#{meucontato.sexo}" />
+			</p:column>
+		</p:dataTable>
+	</h:body>
+</h:form>
+</html>
