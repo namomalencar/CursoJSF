@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<h1>Novo Pais</h1>
+</h:head>
+<h:body>
+
+	<h:form>
+		<h:selectOneMenu value="#{paisBean.pais.presidente.id}"
+			required="true" requiredMessage="Valor obrigatorio">
+			<f:selectItem itemValue="" itemLabel="Selecione o presidente" />
+			<f:selectItems value="#{paisBean.listaPresidentes}" var="pres"
+				itemValue="#{pres.id}" itemLabel="#{pres.nome}" />
+		</h:selectOneMenu>
+		<br />
+		<h:outputLabel>Pais: </h:outputLabel>
+		<br />
+		<h:inputText value="#{paisBean.pais.nome}"></h:inputText>
+		<br />
+		<h:commandButton value="Salvar" action="#{paisBean.salvar}" />
+
+	</h:form>
+
+
+</h:body>
+</html>
